@@ -23,6 +23,7 @@ The idea is, we believe that words that are important will appear more than othe
 not be so common that it appears in too many documents(Inverse Document Frequency). 
 
 The simplest attempt following the standard TF-IDF formular(Term Frequency * log(totaldoc/docfreq)) yielded a non-particularly interesting result:
+
 ![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png)
 
 We can see the the most important words are names. Thus we would want to clean out any word not in common english word. 
