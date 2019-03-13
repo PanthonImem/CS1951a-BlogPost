@@ -27,14 +27,17 @@ The simplest attempt following the standard TF-IDF formular(Term Frequency * log
 
 We can see the the most important words are names. Thus we would want to clean out any word not in common english word. 
 Here is the result:
+
 ![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png)
 
 Oh No! We can see that we are getting weird words that we are not expecting. 
 
 Upon closer inspection, these words only appear in very few documents so their IDFs is very high despite the fact that it does not appear a lot. This is not what we want, thus we will experiment with a couple of weighting methods. 
+
 ![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png)
 
 After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF (*include equation).
+
 ![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png)
 
 
