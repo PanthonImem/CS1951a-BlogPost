@@ -33,7 +33,7 @@ Here is the result:
 
 Oh No! We can see that we are getting weird words that we are not expecting. 
 
-Upon closer inspection, these words only appear in very few documents so their IDFs is very high despite the fact that it does not appear a lot. This is not what we want, thus we will experiment with a couple of weighting methods. 
+Upon closer inspection, these words only appear in very few documents so their IDFs is very high despite the fact that they do not appear a lot. This is not what we want, thus we will experiment with a couple of weighting methods. 
 
 ![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png)
 
