@@ -43,6 +43,9 @@ After a few different experiment with weighting, we ended up with a method to ca
 
 ### Similarity Search: Nearest Neighbor using 'Categories' Properties
 
+From 10,000 most viewed Wikipedia pages in People category, 9,620 pages has 'Categories' property that can be accessed by requesting to Wikipedia API. 
 
+To illustrate, Wikipedia has 'Michael Jackson' fit the following categories: ['1958 births', '2009 deaths', '20th-century American singers', '21st-century American singers', 'AC with 15 elements', 'Accidental deaths in California', 'African-American choreographers', 'African-American dancers', 'African-American male dancers', 'African-American male singers']
 
+Since 'Categories' property summarizes each person and focus on their occupations, nationalities, and ethnicities, we hope that we can classify people into groups using their categories Wikipedia decided. 
 
