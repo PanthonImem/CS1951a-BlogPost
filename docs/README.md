@@ -12,11 +12,12 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 The dataset we are interested is the 10,000 most viewed Wikipedia pages in People category.
  
  
- From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. 
- Among these 3815 are common english words(not name of person or place, 
- result obtained by comparing words extracted to nltk library of common english word). 
- 
 ### Important Word Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
+
+From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. 
+Among these 3815 are common english words(not name of person or place, 
+result obtained by comparing words extracted to nltk library of common english word).
+ 
 We want to know which word is important so we will use a technique called TF-IDF. 
 
 The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
