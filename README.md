@@ -41,6 +41,8 @@ After a few different experiment with weighting, we ended up with a method to ca
 
 ![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png)
 
+### Similarity Search: Nearest Neighbor using 'Categories' Properties
+
 
 
 
