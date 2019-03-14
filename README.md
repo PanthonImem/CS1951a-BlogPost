@@ -12,11 +12,12 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 The dataset we are interested is the 10,000 most viewed Wikipedia pages in People category.
  
  
- We have 5461 unique words in the extracted data. 
- Among these 3815 are common english words(not name of person or place, 
- result obtained by comparing words extracted to nltk library of common english word). 
- 
 ### Important Word Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
+
+From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. 
+Among these 3815 are common english words(not name of person or place, 
+result obtained by comparing words extracted to nltk library of common english word).
+ 
 We want to know which word is important so we will use a technique called TF-IDF. 
 
 The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
@@ -74,9 +75,10 @@ Thus, we tokenize importanct categories and perform Nearest Neighbor Search with
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized.jpg">
 </p>
 
-We also try plotting the one-hot of tokenized categories of pages to see if there are distinct clusterings, but the graph shows that there is not. 
+We also plotted this one-hot of tokenized categories hoping for distinct clusterings. The graph is shown below. 
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized_plot.jpg" width="450">
 </p>
-      
+
+ We might be able to improve Nearest Neighbor Search by adding weights to similar words. Apart from NNS, we plan to use the categories property provided by Wikipedia to classify people into groups. Possibly, we can present common features of pages that have high views by exploring the categories. 
