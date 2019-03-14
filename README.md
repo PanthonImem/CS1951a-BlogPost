@@ -24,22 +24,30 @@ not be so common that it appears in too many documents(Inverse Document Frequenc
 
 The simplest attempt following the standard TF-IDF formular(Term Frequency * log(totaldoc/docfreq)) yielded a non-particularly interesting result:
 
-![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png)
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
+</p>
 
 We can see the the most important words are names. Thus we would want to clean out any word not in common english word. 
 Here is the result:
 
-![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png)
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png" >
+</p>
 
 Oh No! We can see that we are getting weird words that we are not expecting. 
 
 Upon closer inspection, these words only appear in very few documents so their IDFs is very high despite the fact that they do not appear a lot. This is not what we want, thus we will experiment with a couple of weighting methods. 
 
-![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png)
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png" >
+</p>
 
 After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF (*include equation).
 
-![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png)
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png" >
+</p>
 
 ### Similarity Search: Nearest Neighbor Search with 'Categories' Properties
 
@@ -64,7 +72,7 @@ Thus, we tokenize importanct categories and perform Nearest Neighbor Search with
 
 We also try plotting the one-hot of tokenized categories of pages to see if there are distinct clusterings, but the graph shows that there is not. 
 
-
-<img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized_plot.jpg" width="500">
-
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized_plot.jpg" width="500">
+</p>
       
