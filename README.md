@@ -65,6 +65,6 @@ Thus, we tokenize importanct categories and perform Nearest Neighbor Search with
 We also try plotting the one-hot of tokenized categories of pages to see if there are distinct clusterings, but the graph shows that there is not. 
 
 
-![alt text](https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized_plot.jpg | width=100)
+<src = "https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized_plot.jpg", width="100">
 
       
