@@ -64,13 +64,13 @@ $$ \text{tf-idf}(w) =
   \right)
 $$
 
-Using the tf-idf formula above to rank the words gives us an expected result, which we show in the word cloud below.
+Using the tf-idf formula above to rank the words gives us an expected result, which we show in the wordcloud below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
 </p>
 
-We can see the the most important words are names, which makes sense because important words should distinguish between articles. But not very interesting because we already know that these words are important. To counteract this phenomenon, we only consider common English words, i.e., words you would see in an English dictionary. This leaves us with 3815 unique words, the word cloud of whose is shown below.
+We can see the the most important words are names, which makes sense because important words should distinguish between articles. But not very interesting because we already know that these words are important. To counteract this phenomenon, we only consider common English words, i.e., words you would see in an English dictionary. This leaves us with 3815 unique words, the wordcloud of whose is shown below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png" >
@@ -215,7 +215,7 @@ Once we obtain the representations of all the documents, we utilize the k-means 
     </table>
 </p>
 
-Clustering allows us to better understand out dataset. From the table, we see that there are 6 main "categories" in our dataset: (1) sports (Clusters 1, 7), (2) royalty (Clusters 2, 6), (3) actors/actesses, movies-related figures (Clusters 3, 9, 10), (4) successful figures (Cluster 4), (5) politic figures (Cluster 5), and (6) singers (Cluster 8). From the word clouds, we also see that the important words are corresponding to each cluster. For instance, the word "work" was extracted as the most important word in Cluster 4, which represent those best known for their career successes such as Elon Musk, Albert Einstein and William Shakespeare. Moreover, we notice that the dataset is highly imbalanced as shown in the chart below. More than half of the dataset are actors/actresses or movies-related figures, while only 3% are political figures. 
+Clustering allows us to better understand out dataset. From the table, we see that there are 6 main "categories" in our dataset: (1) sports (Clusters 1, 7), (2) royalty (Clusters 2, 6), (3) actors/actesses, movies-related figures (Clusters 3, 9, 10), (4) successful figures (Cluster 4), (5) politic figures (Cluster 5), and (6) singers (Cluster 8). From the wordclouds, we also see that the important words are corresponding to each cluster. For instance, the word "work" was extracted as the most important word in Cluster 4, which represent those best known for their career successes such as Elon Musk, Albert Einstein and William Shakespeare. Moreover, we notice that the dataset is highly imbalanced as shown in the chart below. More than half of the dataset are actors/actresses or movies-related figures, while only 3% are political figures. 
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/pie_.jpg">
