@@ -64,7 +64,7 @@ $$ \text{tf-idf}(w) =
   \right)
 $$
 
-Using the tf-idf formula above to rank the words gives us an expected result.
+Using the tf-idf formula above to rank the words gives us an expected result, which we show in the word cloud below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
