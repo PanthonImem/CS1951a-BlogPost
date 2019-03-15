@@ -59,7 +59,9 @@ The main insight of tf-idf is that important words should give information about
 $$ \text{tf-idf}(w) = 
   \text{frequency of } w
   \cdot 
-  \log \dfrac{N}{\text{frequency of documents containing } w}
+  \log \left(
+    \dfrac{N}{\text{frequency of documents containing } w}
+  \right)
 $$
 
 Using the tf-idf formula above to rank the words gives us an expected result.
