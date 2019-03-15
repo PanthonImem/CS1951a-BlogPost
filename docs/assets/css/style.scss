@@ -1,8 +1,27 @@
- ---
- ---
+---
+---
 
 @import "{{ site.theme }}";
 
-body {
-	font-family: "times";
+@font-face {
+  font-family  : "cmu";
+  src			     : url("../fonts/cmu/cmunrm.otf");
+}
+
+@font-face {
+  font-family  : "cmu";
+  src          : url("../fonts/cmu/cmunrb.otf");
+  font-weight  : bold;
+}
+@font-face {
+  font-family  : "cmu-title";
+  src          : url("../fonts/cmu/cmunbx.otf");
+  font-weight  : bold;
+}
+p, tr, td {
+	font-family: "cmu";
+}
+
+h1, h2, h3, th, li, ul {
+  font-family: "cmu-title";
 }
