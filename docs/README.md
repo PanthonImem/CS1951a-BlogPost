@@ -11,31 +11,48 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 
 ## Blog Post 1 
 
-| rank | name | page views |
-|---|---|---|
-|     1 |   Louis Tomlinson | 32647670 |
-|     2 |   Freddie Mercury | 22261530 |
-|     3 |      Elizabeth II | 20049022 |
-|     4 |   Stephen Hawking | 19025060 |
-|     5 |      Donald Trump | 18663083 |
-|     6 | Cristiano Ronaldo | 18467102 |
-|     7 |           Cardi B | 17955598 |
-|     8 |         Elon Musk | 17836456 |
-|     9 |      XXXTentacion | 15249774 |
-|    10 |      Lionel Messi | 13457818 |
-|    11 |      LeBron James | 12555210 |
-|    12 |     Ariana Grande | 12307383 |
-|    13 |       Jason Momoa | 12208869 |
-|    14 |           6ix9ine | 12091008 |
-|    15 | George H. W. Bush | 12078037 |
-|    16 |  Anthony Bourdain | 11867794 |
-|    17 |   Priyanka Chopra | 11613801 |
-|    18 |       John McCain | 11550433 |
-|    19 |    Queen Victoria | 11415901 |
-|    20 |          Stan Lee | 11352622 |
+Wikipedia put articles about people with listed birthdates into a list [here](https://en.wikipedia.org/wiki/Category:Births_by_century). Scraping pages off it gives us a huge collection of links, 1.37 million in total, to Wikipedia articles about people. One million is hardly a big number when it comes to data science. But it is a big number for the collective memory. Humanity really only remembers the big blots in its history like Shakespeare or Hitler or Napoléon, and stars that just went out like Stephen Hawking. There are not a million people like those. To sift away the forgotten, we ask Wikipedia for page views which can be done by making a million requests like [this one](https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/all-agents/Fred_Rogers/monthly/20180101/20181231) we made for Mister Rogers. These numbers tell us where the limelight shines. 
+
+| Rank | Name              | Views    |
+| ---: | :---------------- | :------- |
+|    1 | Louis Tomlinson   | 32647670 |
+|    2 | Freddie Mercury   | 22261530 |
+|    3 | Elizabeth II      | 20049022 |
+|    4 | Stephen Hawking   | 19025060 |
+|    5 | Donald Trump      | 18663083 |
+|    6 | Cristiano Ronaldo | 18467102 |
+|    7 | Cardi B           | 17955598 |
+|    8 | Elon Musk         | 17836456 |
+|    9 | XXXTentacion      | 15249774 |
+|   10 | Lionel Messi      | 13457818 |
+|   11 | LeBron James      | 12555210 |
+|   12 | Ariana Grande     | 12307383 |
+|   13 | Jason Momoa       | 12208869 |
+|   14 | 6ix9ine           | 12091008 |
+|   15 | George H.W. Bush  | 12078037 |
+|   16 | Anthony Bourdain  | 11867794 |
+|   17 | Priyanka Chopra   | 11613801 |
+|   18 | John McCain       | 11550433 |
+|   19 | Queen Victoria    | 11415901 |
+|   20 | Stan Lee          | 11352622 |
+
+For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. Taking data as fact, sorting the page views in decreasing order will give you the graph below, showing a rapidly decaying number of views as you fall down the popularity ladder.
 
 
-$$ \int e^{X} \d\mu ​$$
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" >
+</p>
+
+
+We took the $$n=10000$$ most popular articles as our subset, which corresponds to more or less about half of all page views in 2018. (Here, the top 1% do own half the wealth.) The cutoff at $$10000$$ is really quite arbitrary. But we want a small subset for two main reasons:
+
+  - Articles with more views are better maintained, and
+  - Most people don't care about the rest.
+
+In addition to graciously providing views statistics, Wikipedia's API endpoint also extracts plaintext from Wikipedia markup language like [this](https://en.wikipedia.org/w/api.php?action=query&prop=categories%7Cextracts&titles=Srinivasa+Ramanujan&explaintext=true&format=json&cllimit=5000). At this point, we know who we want in our data set, the link to their page, and how to extract data from it, collecting data is simply a matter of waiting for page requests.
+
+Now, it has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the lead section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. 
+
 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
 
