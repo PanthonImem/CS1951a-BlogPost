@@ -70,9 +70,7 @@ Using the tf-idf formula above to rank the words gives us an expected result, wh
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
 </p>
 
-We can see the the most important words are names, which is understandable since names are the ultimate distinguisher.
-
-Among these 3815 are common words, i.e., words you would see in an English dictionary. Thus we would want to clean out any word not in common english word. Here is the result:
+We can see the the most important words are names, which makes sense because important words should distinguish between articles. But not very interesting because we already know that these words are important. To counteract this phenomenon, we only consider common English words, i.e., words you would see in an English dictionary. This leaves us with 3815 unique words, the word cloud of whose is shown below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png" >
