@@ -41,7 +41,6 @@ For those who asked the same question we did (with or without expletives), [Loui
 
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:70%;">
 
-
 We took the $$n=10000$$ most popular articles as our subset, which corresponds to more or less about half of all page views in 2018. (Here, the top 1% do own half the wealth.) The cutoff at $$10000$$ is really quite arbitrary. But we want a small subset for two main reasons:
 
   - Articles with more views are better maintained, and
@@ -51,11 +50,9 @@ In addition to graciously providing views statistics, Wikipedia's API endpoint a
 
 Now, it has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the lead section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. So for most of the projects in this blog post, we use the stopped-tokenized-lemmatized bag-of-words representation of the lead section.
 
-### Keyword Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
+### Keyword Extraction: Term Frequency-Inverse Document Frequency (TF-IDF)
 
-From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. Among these 3815 are common english words(not name of person or place, result obtained by comparing words extracted to nltk library of common english word).
-
-We want to know which word is important so we will use a technique called TF-IDF. 
+The lead sections of these 10,000 pages contain 5461 unique words. Among these 3815 are common words, i.e., words you would see in an English dictionary. We want to know which word is important so we will use a technique called TF-IDF. 
 
 The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
 not be so common that it appears in too many documents(Inverse Document Frequency). 
