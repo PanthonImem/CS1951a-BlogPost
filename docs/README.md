@@ -52,12 +52,15 @@ Now, it has never been a matter of debate that the most insightful part of a Wik
 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency (TF-IDF)
 
-Altogether, the $$10000$$ lead sections contain 5461 unique words. Among these 3815 are common words, i.e., words you would see in an English dictionary. To find out which word is important, we use a popular keyword extraction technique called TF-IDF. 
+Altogether, the $$10000$$ lead sections contain 5461 unique words. Among these 3815 are common words, i.e., words you would see in an English dictionary. To find out which word is important, we use a popular keyword extraction technique called term [frequency-inverse document frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (TF-IDF.) 
 
-The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
-not be so common that it appears in too many documents(Inverse Document Frequency). 
+The main insight of TF-IDF is that important words should give information about the articles containing them. In particular, they should appear rather frequently in documents that contain them, but not so ubiquitously that they show up in every other article. 
 
-The simplest attempt following the standard TF-IDF formular(Term Frequency * log(totaldoc/docfreq)) yielded a non-particularly interesting result:
+The simplest of the TF-IDF formulae articulating this train of thought is the formula
+
+$$ \textbb{TF-IDF}(w_i) \text{frequency of } w_i \log \dfrac{N}{\text{frequency of documents containing } w_i} $$
+
+Using the TF-IDF formula above to rank the words gives us an expected result.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
