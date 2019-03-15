@@ -218,5 +218,4 @@ Clustering allows us to better understand out dataset. From the table, we see th
 
 
 
-
-
+[blog-1](blog-1.md)
