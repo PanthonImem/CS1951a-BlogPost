@@ -1,7 +1,7 @@
 # CS1951A Final Project
 
 ## Introduction
-Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content will prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
+Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
 
 We hope, at least, to be able to classify a person into distinct categories (extracted, perhaps, using tf-idf) based on the content of his/her Wikipedia article. For example, the topics extracted from the database using Latent Dirichlet Allocation should give insights on ways to classify a person. We want to be able to tell, for example, based on the topic distributions if the person described in a Wikipedia article is a politician, an artist, or a singer, etc.
  
@@ -9,14 +9,16 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 
 ## Blog Post 1
 
-The dataset we are interested is the 10,000 most viewed Wikipedia pages in People category.
- 
- 
-### Important Word Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
+Every person was born on some day. The important ones have Wikipedia articles. And the really important ones have Wikipedia articles that list their birthdays. (https://en.wikipedia.org/wiki/Category:20th-century_births)[lol]
 
-From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. 
-Among these 3815 are common english words(not name of person or place, 
-result obtained by comparing words extracted to nltk library of common english word).
+
+The most insightful part of a Wikipedia article is the first section, the so called introduction. In our case, the first section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. 
+
+
+ 
+### Keyword Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
+
+From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. Among these 3815 are common english words(not name of person or place, result obtained by comparing words extracted to nltk library of common english word).
  
 We want to know which word is important so we will use a technique called TF-IDF. 
 
@@ -44,7 +46,7 @@ Upon closer inspection, these words only appear in very few documents so their I
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png" >
 </p>
 
-After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF (*include equation).
+After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF (\*include equation).
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png" >
@@ -81,7 +83,7 @@ We also plotted this one-hot of tokenized categories hoping for distinct cluster
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized_plot.jpg" width="450">
 </p>
 
- We might be able to improve Nearest Neighbor Search by adding weights to similar words. Apart from NNS, we plan to use the categories property provided by Wikipedia to classify people into groups. Possibly, we can present common features of pages that have high views by exploring the categories.
+We might be able to improve Nearest Neighbor Search by adding weights to similar words. Apart from NNS, we plan to use the categories property provided by Wikipedia to classify people into groups. Possibly, we can present common features of pages that have high views by exploring the categories.
 
 
 ### Document Clustering: K-means Clustering with Doc2vec
