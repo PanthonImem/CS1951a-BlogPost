@@ -9,7 +9,11 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 
 ## Blog Post 1
 
-Every person was born on some day. The important ones have Wikipedia articles. The really important ones have Wikipedia articles that list their birthdays. Wikipedia recognizes listed birthdays and organizes the pages into a list accessible [here](https://en.wikipedia.org/wiki/Category:Births_by_century)
+Every person was born on some day. The important ones have Wikipedia articles. The really important ones have Wikipedia articles that list their birthdays. Wikipedia recognizes listed birthdays and categorizes each article with listed birth dates [like so](https://en.wikipedia.org/wiki/Category:Births_by_century).
+
+
+
+
 
 
 The most insightful part of a Wikipedia article is the first section, the so called introduction. In our case, the first section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. 
