@@ -47,7 +47,7 @@ We took the $$n=10000$$ most popular articles as our subset, which corresponds t
   - Articles with more views are better maintained, and
   - Most people don't care about the rest.
 
-In addition to graciously providing views statistics, Wikipedia's API endpoint also extracts plaintext from Wikipedia markup language like [this](https://en.wikipedia.org/w/api.php?action=query&prop=categories%7Cextracts&titles=Srinivasa+Ramanujan&explaintext=true&format=json&cllimit=5000). At this point, we know who we want in our data set, the link to their page, and how to extract data from it, collecting data is simply a matter of waiting for page requests.
+In addition to graciously providing views statistics, Wikipedia's API endpoint also extracts plaintext from Wikipedia markup language when asked [nicely](https://en.wikipedia.org/w/api.php?action=query&prop=categories%7Cextracts&titles=Srinivasa+Ramanujan&explaintext=true&format=json&cllimit=5000). At this point, we know who we want in our data set, the link to their page, and how to extract data from it, collecting data is simply a matter of waiting for page requests.
 
 Now, it has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the lead section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. So for most of the projects in this blog post, we use the stopped-tokenized-lemmatized bag-of-words representation of the lead section.
 
