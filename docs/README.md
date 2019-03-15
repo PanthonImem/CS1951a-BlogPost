@@ -36,7 +36,7 @@ Every person was born on some day. Famous ones have Wikipedia articles. Virtuall
 
 For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. But taking data as fact, take a subset of the data by taking the first $$n$$ articles.
 
-It has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the introduction tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. 
+It has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the introduction tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article.
 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
 
