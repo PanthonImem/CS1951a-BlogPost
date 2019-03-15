@@ -17,47 +17,28 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 
 Every person was born on some day. Famous ones have Wikipedia articles. Virtually always, really famous ones have Wikipedia articles that list their birthdays. Wikipedia bots categorize articles of people with listed birthdates into a list [like this](https://en.wikipedia.org/wiki/Category:Births_by_century). (For example, Harambe the Gorilla's article lists his birthdate, but was excluded from the list.) Scraping pages off this list gives us a huge collection of links, 1.37 million in total, to Wikipedia articles about people. One million is hardly a big number when it comes to data science. But it is a big number for the collective memory. Humanity doesn't remember one million people. Humanity only really remembers the big blots in its history like Shakespeare or Hitler or Napoleon, or the stars that just went out like Stephen Hawking and there are not a million people like those. To sift away the forgotten, we look at their page views by spamming a million requests like [this one](https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/all-agents/Fred_Rogers/monthly/20180101/20181231) we made for Mister Rogers. Here are the people at the top and their page views.
 
-------------------------------------
+|---|---|---|
 |     1 |   Louis Tomlinson | 32647670 |
-------------------------------------
 |     2 |   Freddie Mercury | 22261530 |
-------------------------------------
 |     3 |      Elizabeth II | 20049022 |
-------------------------------------
 |     4 |   Stephen Hawking | 19025060 |
-------------------------------------
 |     5 |      Donald Trump | 18663083 |
-------------------------------------
 |     6 | Cristiano Ronaldo | 18467102 |
-------------------------------------
 |     7 |           Cardi B | 17955598 |
-------------------------------------
 |     8 |         Elon Musk | 17836456 |
-------------------------------------
 |     9 |      XXXTentacion | 15249774 |
-------------------------------------
 |    10 |      Lionel Messi | 13457818 |
-------------------------------------
 |    11 |      LeBron James | 12555210 |
-------------------------------------
 |    12 |     Ariana Grande | 12307383 |
-------------------------------------
 |    13 |       Jason Momoa | 12208869 |
-------------------------------------
 |    14 |           6ix9ine | 12091008 |
-------------------------------------
 |    15 | George H. W. Bush | 12078037 |
-------------------------------------
 |    16 |  Anthony Bourdain | 11867794 |
-------------------------------------
 |    17 |   Priyanka Chopra | 11613801 |
-------------------------------------
 |    18 |       John McCain | 11550433 |
-------------------------------------
 |    19 |    Queen Victoria | 11415901 |
-------------------------------------
 |    20 |          Stan Lee | 11352622 |
-------------------------------------
+
 
 For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. But taking data as fact, take a subset of the data by taking the first $$n$$ articles.
 
