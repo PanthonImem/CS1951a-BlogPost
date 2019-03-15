@@ -9,8 +9,6 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 
 ## Blog Post 1 
 
-Every person was born on some day. Famous ones have Wikipedia articles. Virtually always, really famous ones have Wikipedia articles that list their birthdays. Wikipedia bots categorize articles of people with listed birthdates into a list [like this](https://en.wikipedia.org/wiki/Category:Births_by_century). (For example, Harambe the Gorilla's article lists his birthdate, but was excluded from the list.) Scraping pages off this list gives us a huge collection of links, 1.37 million in total, to Wikipedia articles about people. One million is hardly a big number when it comes to data science. But it is a big number for the collective memory. Humanity doesn't remember one million people. Humanity only really remembers the big blots in its history like Shakespeare or Hitler or Napoleon, or the stars that just went out like Stephen Hawking and there are not a million people like those. To sift away the forgotten, we look at their page views by spamming a million requests like [this one](https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/all-agents/Fred_Rogers/monthly/20180101/20181231) we made for Mister Rogers. Here are the people at the top and their page views.
-
 | rank | name | page views |
 |---|---|---|
 |     1 |   Louis Tomlinson | 32647670 |
@@ -35,12 +33,7 @@ Every person was born on some day. Famous ones have Wikipedia articles. Virtuall
 |    20 |          Stan Lee | 11352622 |
 
 
-For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. But taking data as fact, take a subset of the data by taking the first $$n$$ articles.
-
-
-$$ \int e^{X} \d\mu $$
-
-It has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the introduction tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article.
+$$ \int e^{X} \d\mu ​$$
 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
 
