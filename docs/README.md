@@ -1,3 +1,5 @@
+{% include mathjax.html %}
+
 # CS1951A Final Project
 
 ## Introduction
