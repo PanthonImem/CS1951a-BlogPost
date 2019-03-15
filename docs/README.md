@@ -46,31 +46,29 @@ We took the $$n=10000$$ most popular articles as our subset, which corresponds t
   - Articles with more views are better maintained, and
   - Most people don't care about the rest.
 
-In addition to graciously providing views statistics, Wikipedia's API endpoint also extracts plaintext from Wikipedia markup language when asked [nicely](https://en.wikipedia.org/w/api.php?action=query&prop=categories%7Cextracts&titles=Srinivasa+Ramanujan&explaintext=true&format=json&cllimit=5000). At this point, we know who we want in our data set, the link to their page, and how to extract data from it, collecting data is simply a matter of waiting for page requests.
+In addition to graciously providing views statistics, Wikipedia's API endpoint also extracts plaintext from Wikipedia markup language when asked [nicely](https://en.wikipedia.org/w/api.php?action=query&prop=categories%7Cextracts&titles=Srinivasa+Ramanujan&explaintext=true&format=json&cllimit=5000). At this point, we know who we want in our dataset, the link to their page, and how to extract plaintext from it, collecting data is simply a matter of waiting for page requests.
 
 Now, it has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the lead section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. So for most of the projects in this blog post, we use the stopped-tokenized-lemmatized bag-of-words representation of the lead section.
 
-### Keyword Extraction: Term Frequency-Inverse Document Frequency (TF-IDF)
+### Keyword Extraction: Term Frequency-Inverse Document Frequency
 
-Altogether, the $$10000$$ lead sections contain 5461 unique words. Among these 3815 are common words, i.e., words you would see in an English dictionary. To find out which word is important, we use a popular keyword extraction technique called term [frequency-inverse document frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (TF-IDF.) 
+Altogether, the $$10000$$ lead sections contain 5461 unique words. To quantify the importance of each word, we use a popular keyword extraction technique called term [frequency-inverse document frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (tf-idf.) 
 
-The main insight of TF-IDF is that important words should give information about the articles containing them. In particular, they should appear rather frequently in documents that contain them, but not so ubiquitously that they show up in every other article. 
+The main insight of tf-idf is that important words should give information about the articles containing them. In particular, they should appear rather frequently in documents that contain them, but not so ubiquitously that they show up in every other article. The simplest of the tf-idf formulae articulating this train of thought is
 
-The simplest of the TF-IDF formulae articulating this train of thought is the formula
-
-$$ \text{TF-IDF}(w_i) = 
-  \text{frequency of } w_i 
+$$ \text{tf-idf}(w) = 
+  \text{frequency of } w
   \cdot 
-  \log \dfrac{N}{\text{frequency of documents containing } w_i} 
+  \log \dfrac{N}{\text{frequency of documents containing } w}
 $$
 
-Using the TF-IDF formula above to rank the words gives us an expected result.
+Using the tf-idf formula above to rank the words gives us an expected result.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
 </p>
 
-We can see the the most important words are names. Thus we would want to clean out any word not in common english word. 
+We can see the the most important words are names. Among these 3815 are common words, i.e., words you would see in an English dictionary. Thus we would want to clean out any word not in common english word. 
 Here is the result:
 
 <p align="center">
