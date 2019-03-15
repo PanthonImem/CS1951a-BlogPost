@@ -65,7 +65,10 @@ Upon closer inspection, these words only appear in very few documents so their I
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png" >
 </p>
 
-After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF (\*include equation).
+After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF 
+
+$$ \log {\frac {N-n_{t}}{n_{t}}} $$
+
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png" >
