@@ -1,3 +1,9 @@
+---
+title: This is my title
+layout: post
+---
+
+
 # CS1951A Final Project
 
 ## Introduction
