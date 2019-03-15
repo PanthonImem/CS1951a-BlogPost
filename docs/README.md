@@ -70,7 +70,8 @@ Using the tf-idf formula above to rank the words gives us an expected result, wh
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
 </p>
 
-We can see the the most important words are names, which is understandable since names are the ultimate distinguisher. 
+We can see the the most important words are names, which is understandable since names are the ultimate distinguisher.
+
 Among these 3815 are common words, i.e., words you would see in an English dictionary. Thus we would want to clean out any word not in common english word. Here is the result:
 
 <p align="center">
