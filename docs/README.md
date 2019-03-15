@@ -17,6 +17,7 @@ As probability vectors, LDA distributions also give us embeddings into high-dime
 
 Every person was born on some day. Famous ones have Wikipedia articles. Virtually always, really famous ones have Wikipedia articles that list their birthdays. Wikipedia bots categorize articles of people with listed birthdates into a list [like this](https://en.wikipedia.org/wiki/Category:Births_by_century). (For example, Harambe the Gorilla's article lists his birthdate, but was excluded from the list.) Scraping pages off this list gives us a huge collection of links, 1.37 million in total, to Wikipedia articles about people. One million is hardly a big number when it comes to data science. But it is a big number for the collective memory. Humanity doesn't remember one million people. Humanity only really remembers the big blots in its history like Shakespeare or Hitler or Napoleon, or the stars that just went out like Stephen Hawking and there are not a million people like those. To sift away the forgotten, we look at their page views by spamming a million requests like [this one](https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/all-agents/Fred_Rogers/monthly/20180101/20181231) we made for Mister Rogers. Here are the people at the top and their page views.
 
+------------------------------------
     1 :   Louis Tomlinson : 32647670
 ------------------------------------
     2 :   Freddie Mercury : 22261530
