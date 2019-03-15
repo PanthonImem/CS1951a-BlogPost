@@ -36,7 +36,7 @@ Wikipedia put articles about people with listed birthdates into a list [here](ht
 |   19 | Queen Victoria    | 11415901 |
 |   20 | Stan Lee          | 11352622 |
 
-For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. Taking data as fact, sorting the page views in decreasing order will give you the graph below, showing a rapidly decaying number of views as you fall down the popularity ladder.
+For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. Taking data as fact, sorting the page views in decreasing order gives us the graph below showing a rapidly decaying number of views as you fall down the popularity ladder.
 
 
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:95%;">
