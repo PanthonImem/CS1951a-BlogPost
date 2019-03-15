@@ -52,7 +52,7 @@ Now, it has never been a matter of debate that the most insightful part of a Wik
 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency (TF-IDF)
 
-The lead sections of these 10,000 pages contain 5461 unique words. Among these 3815 are common words, i.e., words you would see in an English dictionary. We want to know which word is important so we will use a technique called TF-IDF. 
+Altogether, the $$10000$$ lead sections contain 5461 unique words. Among these 3815 are common words, i.e., words you would see in an English dictionary. To find out which word is important, we use a popular keyword extraction technique called TF-IDF. 
 
 The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
 not be so common that it appears in too many documents(Inverse Document Frequency). 
