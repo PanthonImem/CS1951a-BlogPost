@@ -4,26 +4,44 @@
 Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
 
 We hope, at least, to be able to classify a person into distinct categories (extracted, perhaps, using tf-idf) based on the content of his/her Wikipedia article. For example, the topics extracted from the database using Latent Dirichlet Allocation should give insights on ways to classify a person. We want to be able to tell, for example, based on the topic distributions if the person described in a Wikipedia article is a politician, an artist, or a singer, etc.
- 
+
 As probability vectors, LDA distributions also give us embeddings into high-dimensional space from which we can find embeddings into 2 or 3 dimensions for visualization. Then, if time permits, we may also learn to generate fake Wikipedia articles using Markov models and GANs.
 
-## Blog Post 1
+## Blog Post 1 
 
-Every person was born on some day. The important ones have Wikipedia articles. The really important ones have Wikipedia articles that list their birthdays. Wikipedia recognizes listed birthdays and categorizes each article with listed birth dates [like so](https://en.wikipedia.org/wiki/Category:Births_by_century).
+Every person was born on some day. Famous ones have Wikipedia articles. Virtually always, really famous ones have Wikipedia articles that list their birthdays. Wikipedia bots categorize articles of people with listed birthdates into a list [like this](https://en.wikipedia.org/wiki/Category:Births_by_century). (For example, Harambe the Gorilla's article lists his birthdate, but was excluded from the list.) Scraping pages off this list gives us a huge collection of links, 1.37 million in total, to Wikipedia articles about people. One million is hardly a big number when it comes to data science. But it is a big number for the collective memory. Humanity doesn't remember one million people. Humanity only really remembers the big blots in its history like Shakespeare or Hitler or Napoleon, or the stars that just went out like Stephen Hawking and there are not a million people like those. To sift away the forgotten, we look at their page views by spamming a million requests like [this one](https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/all-agents/Fred_Rogers/monthly/20180101/20181231) we made for Mister Rogers. Here are the people at the top and their page views.
 
+```
+    1 |   Louis Tomlinson | 32647670
+    2 |   Freddie Mercury | 22261530
+    3 |      Elizabeth II | 20049022
+    4 |   Stephen Hawking | 19025060
+    5 |      Donald Trump | 18663083
+    6 | Cristiano Ronaldo | 18467102
+    7 |           Cardi B | 17955598
+    8 |         Elon Musk | 17836456
+    9 |      XXXTentacion | 15249774
+   10 |      Lionel Messi | 13457818
+   11 |      LeBron James | 12555210
+   12 |     Ariana Grande | 12307383
+   13 |       Jason Momoa | 12208869
+   14 |           6ix9ine | 12091008
+   15 | George H. W. Bush | 12078037
+   16 |  Anthony Bourdain | 11867794
+   17 |   Priyanka Chopra | 11613801
+   18 |       John McCain | 11550433
+   19 |    Queen Victoria | 11415901
+   20 |          Stan Lee | 11352622
+```
 
+For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. But taking data as fact, take a subset of the data by taking the first $$n$$ articles.
 
+It has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called [lead](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Lead_section). In our case, the introduction tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. 
 
-
-
-The most insightful part of a Wikipedia article is the first section, the so called introduction. In our case, the first section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. 
-
-
- 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency(TF-IDF)
 
 From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. Among these 3815 are common english words(not name of person or place, result obtained by comparing words extracted to nltk library of common english word).
- 
+
 We want to know which word is important so we will use a technique called TF-IDF. 
 
 The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
