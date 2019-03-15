@@ -39,7 +39,7 @@ Wikipedia put articles about people with listed birthdates into a list [here](ht
 For those who asked the same question we did (with or without expletives), [Louis Tomlinson](https://en.wikipedia.org/wiki/Louis_Tomlinson) is a member of _One Direction_. How he came to have 15 times more page views than his other band members remains a mystery beyond the reach of our intelligence. Taking data as fact, sorting the page views in decreasing order will give you the graph below, showing a rapidly decaying number of views as you fall down the popularity ladder.
 
 
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:50%;">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:70%;">
 
 
 We took the $$n=10000$$ most popular articles as our subset, which corresponds to more or less about half of all page views in 2018. (Here, the top 1% do own half the wealth.) The cutoff at $$10000$$ is really quite arbitrary. But we want a small subset for two main reasons:
