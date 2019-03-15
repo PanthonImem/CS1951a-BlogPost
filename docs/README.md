@@ -52,37 +52,43 @@ Now, it has never been a matter of debate that the most insightful part of a Wik
 
 ### Keyword Extraction: Term Frequency-Inverse Document Frequency
 
-From all first paragraphs of these 10,000 pages, we have 5461 unique words in the extracted data. Among these 3815 are common english words(not name of person or place, result obtained by comparing words extracted to nltk library of common english word).
+Altogether, the $$10000$$ lead sections contain 5461 unique words. To quantify the importance of each word, we use a popular keyword extraction technique called term [frequency-inverse document frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (tf-idf.) 
 
-We want to know which word is important so we will use a technique called TF-IDF. 
+The main insight of tf-idf is that important words should give information about the articles containing them. In particular, they should appear rather frequently in documents that contain them, but not so ubiquitously that they show up in every other article. The simplest of the tf-idf formulae articulating this train of thought is
 
-The idea is, we believe that words that are important will appear more than others(Term Frequency), while it should
-not be so common that it appears in too many documents(Inverse Document Frequency). 
+$$ \text{tf-idf}(w) = 
+  \text{frequency of } w
+  \cdot 
+  \log \left(
+    \dfrac{N}{\text{frequency of documents containing } w}
+  \right)
+$$
 
-The simplest attempt following the standard TF-IDF formular(Term Frequency * log(totaldoc/docfreq)) yielded a non-particularly interesting result:
+Using the tf-idf formula above to rank the words gives us an expected result, which we show in the wordcloud below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png" >
 </p>
 
-We can see the the most important words are names. Thus we would want to clean out any word not in common english word. 
-Here is the result:
+We can see the the most important words are names, which makes sense because important words should distinguish between articles. But not very interesting because we already know that these words are important. To counteract this phenomenon, we only consider common English words, i.e., words you would see in an English dictionary. This leaves us with 3815 unique words, the wordcloud of whose is shown below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png" >
 </p>
 
-Oh No! We can see that we are getting weird words that we are not expecting. 
-
-Upon closer inspection, these words only appear in very few documents so their IDFs is very high despite the fact that they do not appear a lot. This is not what we want, thus we will experiment with a couple of weighting methods. 
+Words like "cave" and "pompey" and "vaccine" definitely tell us a lot about the articles containing them, but they don't cover enough of the corpus to give us a big picture. (If you read on, you will see that over half of the articles are about actors or actresses, but it's impossible to tell just looking at these words that there are any famous actors.) Upon closer inspection, these words only appear in very few documents, so their idf-weights are very high despite not appearing a lot. We experimented with other tf-idf formulae:
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png" >
 </p>
 
-After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls Probabilistic IDF 
+After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls probabilistic idf.
 
-$$ \log {\frac {N-n_{t}}{n_{t}}} $$
+  $$ idf(w) = \log {\frac {N-n_{w}}{n_{w}}} $$
+
+where $$n_{w}$$ is the number of articles containing the term $$w$$. 
+
+
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png" >
