@@ -145,7 +145,7 @@ Once we obtain the representations of all the documents, we utilize the k-means 
         </tr>
         <tr style="border: 1px solid black">
           <td>1</td>
-          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/1.jpg" width="250" vertical-align="top"></td> 
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/1.jpg" style="width: 250px; vertical-align: top"></td> 
           <td>LeBron James, Dwayne Johnson, Tonya Harding, Khabib Nurmagomedov, John Cena, Stephen Curry, Anthony Joshua, Caitlyn Jenner, Naomi Osaka, The Undertaker</td>
           <td>814</td>
           <td>0.0188</td>
