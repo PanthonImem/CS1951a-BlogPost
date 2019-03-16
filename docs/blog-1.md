@@ -137,7 +137,7 @@ Once we obtain the representations of all the documents, we utilize the k-means 
 	<table style="width: 100%; border: 1px solid black; border-collapse: collapse;">
     	<tr style="border: 1px solid black">
           <th>Cluster</th>
-          <th width="40%">Word Cloud</th> 
+          <th>Word Cloud</th> 
           <th>Example</th>
           <th>Number of Pages</th>
           <th>Variance</th>
