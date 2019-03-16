@@ -138,14 +138,14 @@ Once we obtain the representations of all the documents, we utilize the k-means 
   <table style="width: 100%; border: 1px solid black; border-collapse: collapse;">
       <tr style="border: 1px solid black">
           <th>Cluster</th>
-          <th width="30%">Word Cloud</th> 
+          <th width="40%">Word Cloud</th> 
           <th>Example</th>
           <th>Number of Pages</th>
           <th>Variance</th>
         </tr>
         <tr style="border: 1px solid black">
           <td>1</td>
-          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/1.jpg" width="200"></td> 
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/1.jpg" width="200" aligh="top"></td> 
           <td>LeBron James, Dwayne Johnson, Tonya Harding, Khabib Nurmagomedov, John Cena, Stephen Curry, Anthony Joshua, Caitlyn Jenner, Naomi Osaka, The Undertaker</td>
           <td>814</td>
           <td>0.0188</td>
