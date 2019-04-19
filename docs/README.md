@@ -2,6 +2,8 @@
 
 # CS1951A Final Project
 
+[create an anchor](#introduction)
+
 ## Introduction
 Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
 
@@ -224,6 +226,8 @@ Clustering allows us to better understand out dataset. From the table, we see th
 
  However, there are some issues concerning our clustering. The first issue is a trade off between a large and small numbers of clusters. When we have too many clusters, some categories might be duplicated or very similar as the results we obtained when having 10 clusters. On the other hand, when we have a small number of clusters, a cluster may include irrelevant pages. As an example, Anthony Bourdain who was a chef was put in the royal families cluster (Cluster 2). While solving the trade off problem is not trivial, a possible work around for this is using alternative embeddings which better represent information about each cluster. As an idea, if we want to cluster documents based on occupations, we can build a neural network which enbeds documents and is trained to predict occupations.
 
+## Blog Post 2
+#  Document Clustering: Spectral Clustering with Bag of Words 
 
-
+To improve the performance of document clustering, we tried clustering them with spectral clustering 
 [blog-1](blog-1.md)
