@@ -320,7 +320,7 @@ With this clustering, 55% of the dataset are actors/actresses, 22% are athletes,
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/spectral_clustering_piechart.png" width="300">
 </p>
 
-To roughly confirm the accuracy of the model, we compared the results with percentage of 10,000 most viewed Wikipedia articles that belong to each occupation using category property that Wikipedia gives to each its article, which presents in the pie chart below. This pie chart is however not completely accurate itself because, firstly, one person may have more than one occupation indicated in the category property; secondly, Wikipedia only give 9,620 pages from 10,000 most viewed Wikipedia articles in people the category property; and lastly, to compare with the results from k-mean algorithm, we disregarded several jobs, including novelists, comedians, and artists. 
+To roughly confirm the accuracy of the model, we compared the results with percentage of 10,000 most viewed Wikipedia articles that belong to each occupation using category property that Wikipedia gives to each its article, which presents in the pie chart below.
 
 <p align="center">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/categories_piechart.png" width="300">
@@ -328,6 +328,9 @@ To roughly confirm the accuracy of the model, we compared the results with perce
 
 Compared two clusterings with the pie chart using keywords from categories attribute, we can see that the spectral clustering with bag of words is better at clustering actors/actresses and singers, while kmeans clustering with Doc2Vec is better at grouping athletes and politicians. 
 
+The pie chart obtained from keywords in categories is however not completely accurate itself because, firstly, one person may have more than one occupation indicated in the category property; secondly, Wikipedia only give 9,620 pages from 10,000 most viewed Wikipedia articles in people the category property; and lastly, to compare with the results from k-mean algorithm, we disregarded several jobs, including novelists, comedians, and artists. 
+
+To further develop the accuracy test, we should create labels for each person. One possible method is to detect a keyword (i.e. actor, actress, government, politician, singer, rapper, etc.) from either the lead, the categories attribute, or the description attribute.
 
 [blog-1](blog-1.md)
 [blog-2](blog-2.md)
