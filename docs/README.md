@@ -326,6 +326,8 @@ To roughly confirm the accuracy of the model, we compared the results with perce
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/categories_piechart.png" width="300">
 </p>
 
-Compared two clusterings with the pie chart using keywords from categories attribute, we can see that the spectral clustering with bag of words is better in clustering actors/actresses and 
+Compared two clusterings with the pie chart using keywords from categories attribute, we can see that the spectral clustering with bag of words is better at clustering actors/actresses and singers, while kmeans clustering with Doc2Vec is better at grouping athletes and politicians. 
+
+
 [blog-1](blog-1.md)
 [blog-2](blog-2.md)
