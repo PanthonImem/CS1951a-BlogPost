@@ -227,7 +227,7 @@ Clustering allows us to better understand out dataset. From the table, we see th
 ## Blog Post 2
 ### Document Clustering: Spectral Clustering with Bag of Words 
 
-To improve the performance of document clustering, we tried clustering socuments with [spectral clustering](https://en.wikipedia.org/wiki/Spectral_clustering). Instead of grouping points that are close to one another together like K-means approach, spectral clustering clusters points that connect to one another together. With many feature extraction methods including Doc2Vec and TF-IDF, spectral clustering with bag of words gives the best result. Unlike the result from Kmeans with Doc2Vec, this result groups athletes who play different sports. However, there is no group of royalty in this clustering result. 
+To improve the performance of document clustering, we tried clustering socuments with [spectral clustering](https://en.wikipedia.org/wiki/Spectral_clustering). Instead of grouping points that are close to one another together like K-means approach, spectral clustering clusters points that connect to one another together. With many feature extraction methods including doc2vec and TF-IDF, spectral clustering with bag of words gives the best result. Unlike the result from Kmeans with doc2vec, this result groups athletes who play different sports. However, there is no group of royalty in this clustering result. 
 
 The result of spectral clustering with bag of words is the following. 
 
