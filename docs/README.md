@@ -2,10 +2,6 @@
 
 # CS1951A Final Project
 
-[Introduction](#introduction)
-
-[Blog Post 1](#Blog Post 1)
-
 [Blog Post 2](#Blog Post 2)
 
 ## Introduction
