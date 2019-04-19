@@ -2,10 +2,6 @@
 
 # CS1951A Final Project
 
-[introduction](#Introduction)
-[blog post 1](#Blog-Post-1)
-[blog post 2](#Blog-Post-2)
-
 ## Introduction
 Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
 
@@ -229,9 +225,9 @@ Clustering allows us to better understand out dataset. From the table, we see th
  However, there are some issues concerning our clustering. The first issue is a trade off between a large and small numbers of clusters. When we have too many clusters, some categories might be duplicated or very similar as the results we obtained when having 10 clusters. On the other hand, when we have a small number of clusters, a cluster may include irrelevant pages. As an example, Anthony Bourdain who was a chef was put in the royal families cluster (Cluster 2). While solving the trade off problem is not trivial, a possible work around for this is using alternative embeddings which better represent information about each cluster. As an idea, if we want to cluster documents based on occupations, we can build a neural network which enbeds documents and is trained to predict occupations.
 
 ## Blog Post 2
-#  Document Clustering: Spectral Clustering with Bag of Words 
+### Document Clustering: Spectral Clustering with Bag of Words 
 
-To improve the performance of document clustering, we tried clustering socuments with spectral clustering. Instead of grouping points that are close to one another together like K-means approach, spectral clustering clusters points that connect to one another together. With many feature extraction methods including Doc2Vec and TF-IDF, spectral clustering with bag of words gives the best result. Unlike the result from Kmeans with Doc2Vec, this result groups athletes who play different sports. However, there is no group of royalty in this clustering result. 
+To improve the performance of document clustering, we tried clustering socuments with [spectral clustering](https://en.wikipedia.org/wiki/Spectral_clustering). Instead of grouping points that are close to one another together like K-means approach, spectral clustering clusters points that connect to one another together. With many feature extraction methods including Doc2Vec and TF-IDF, spectral clustering with bag of words gives the best result. Unlike the result from Kmeans with Doc2Vec, this result groups athletes who play different sports. However, there is no group of royalty in this clustering result. 
 
 The result of spectral clustering with bag of words is the following. 
 
@@ -262,58 +258,58 @@ The result of spectral clustering with bag of words is the following.
         <tr style="border: 1px solid black">
           <td>3</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/3.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Louis Tomlinson, Antonio Maria Magro, Dua Lipa, Pete Davidson, Andrew Cunanan, Hailey Baldwin, Dolores O'Riordan, John Paul Getty III, Lisa Bonet, Beto O'Rourke</td>
-          <td>3597</td>
-          <td>0.0055</td>
+          <td>Dwayne Johnson, Tonya Harding, Jeff Bezos, Khabib Nurmagomedov, Conor McGregor, Roger Federer, John Cena, Anthony Joshua, Serena Williams, Muhammad Ali</td>
+          <td>377</td>
+          <td>2.60e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>4</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/4.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Elon Musk, Stephen Hawking, P. T. Barnum, Albert Einstein, Ted Kaczynski, Steve Jobs, William Shakespeare, Bill Gates, Rajneesh, Nikola Tesla</td>
-          <td>342</td>
-          <td>0.0322</td>
+          <td>Donald Trump, George H. W. Bush, John McCain, Winston Churchill, Barack Obama, P. T. Barnum, Brett Kavanaugh, George W. Bush, John F. Kennedy, Abraham Lincoln</td>
+          <td>602</td>
+          <td>3.30e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>5</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/5.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Donald Trump, George H. W. Bush, John McCain, Winston Churchill, Barack Obama, Adolf Hitler, Brett Kavanaugh, Mahatma Gandhi, George W. Bush, Martin Luther King Jr.</td>
-          <td>336</td>
-          <td>0.0429</td>
+          <td>Tom Cruise, Demi Lovato, Scarlett Johansson, Emily Blunt, Bradley Cooper, Leonardo DiCaprio, Rami Malek, Ellen DeGeneres, Elizabeth Olsen, Robin Williams</td>
+          <td>715</td>
+          <td>1.55e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>6</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/6.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Elizabeth II, Queen Victoria, Princess Margaret, Countess of Snowdon, George VI, Mary, Queen of Scots, Edward VIII, George V, Elizabeth I of England, Joaquín "El Chapo" Guzmán, Henry VIII of England</td>
-          <td>253</td>
-          <td>0.0428</td>
+          <td>LeBron James, Michael Jordan, Tom Brady, Stephen Curry, Shaquille O'Neal, Kobe Bryant, Nick Foles, O. J. Simpson, Kevin Durant, Patrick Mahomes</td>
+          <td>507</td>
+          <td>1.78e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>7</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/7.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Cristiano Ronaldo, Lionel Messi, Michael Jordan, Tom Brady, Kylian Mbappé, Mohamed Salah, Conor McGregor, Roger Federer, Virat Kohli, Neymar</td>
-          <td>387</td>
-          <td>0.0414</td>
+          <td>Cristiano Ronaldo, Lionel Messi, Kylian Mbappé, Mohamed Salah, Virat Kohli, Neymar, Harry Kane, Zlatan Ibrahimovi%C4%87, David Beckham, Pelé</td>
+          <td>470</td>
+          <td>2.15e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>8</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/8.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Cardi B, Freddie Mercury, XXXTentacion, Ariana Grande, 6ix9ine, Avicii, Donald Glover, Nick Jonas, Post Malone, Michael Jackson</td>
-          <td>697</td>
-          <td>0.0269</td>
+          <td>Cardi B, Louis Tomlinson, XXXTentacion, Ariana Grande, 6ix9ine, Avicii, Donald Glover, Nick Jonas, Post Malone, Michael Jackson</td>
+          <td>727</td>
+          <td>2.32e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>9</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/9.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Jason Momoa, Stan Lee, Sylvester Stallone, Jennifer Aniston, Michael B. Jordan, Burt Reynolds, Ryan Reynolds, Chris Hemsworth, Josh Brolin, Gianni Versace</td>
-          <td>1930</td>
-          <td>0.0106</td>
+          <td>Meghan, Duchess of Sussex, Jennifer Aniston, Kylie Jenner, Michael B. Jordan, Burt Reynolds, John Krasinski, Tom Hardy, Chris Pratt, Jennifer Lawrence, Fred Rogers</td>
+          <td>1349</td>
+          <td>1.07e-09</td>
         </tr>
         <tr style="border: 1px solid black">
           <td>10</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/10.jpg" style="width: 250px; vertical-align: top"></td> 
-          <td>Priyanka Chopra, Sridevi, Tom Cruise, Demi Lovato, Clint Eastwood, Scarlett Johansson, Emily Blunt, Keanu Reeves, Bradley Cooper, John Krasinski</td>
-          <td>688</td>
-          <td>0.0247</td>
+          <td>Jason Momoa, Priyanka Chopra, Sridevi, Sylvester Stallone, Clint Eastwood, Ryan Reynolds, Chris Hemsworth, Josh Brolin, Keanu Reeves, Mila Kunis</td>
+          <td>792</td>
+          <td>1.62e-09</td>
         </tr>
     </table>
 </p>
