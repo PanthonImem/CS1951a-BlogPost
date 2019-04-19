@@ -286,7 +286,7 @@ The result of spectral clustering with bag of words is the following.
         <tr style="border: 1px solid black">
           <td>7</td>
           <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/spectralcluster_n10_wordcloud/7.png" style="width: 250px; vertical-align: top"></td> 
-          <td>Cristiano Ronaldo, Lionel Messi, Kylian Mbappé, Mohamed Salah, Virat Kohli, Neymar, Harry Kane, Zlatan Ibrahimovi%C4%87, David Beckham, Pelé</td>
+          <td>Cristiano Ronaldo, Lionel Messi, Kylian Mbappé, Mohamed Salah, Virat Kohli, Neymar, Harry Kane, Zlatan Ibrahimović, David Beckham, Pelé</td>
           <td>470</td>
           <td>2.15e-09</td>
         </tr>
