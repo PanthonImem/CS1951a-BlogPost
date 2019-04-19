@@ -315,3 +315,4 @@ The result of spectral clustering with bag of words is the following.
 </p>
 
 [blog-1](blog-1.md)
+[blog-2](blog-2.md)
