@@ -2,7 +2,9 @@
 
 # CS1951A Final Project
 
-[create an anchor](#introduction)
+[Introduction](#introduction)
+[Blog Post 1](#Blog Post 1)
+[Blog Post 2](#Blog Post 2)
 
 ## Introduction
 Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
@@ -229,5 +231,91 @@ Clustering allows us to better understand out dataset. From the table, we see th
 ## Blog Post 2
 #  Document Clustering: Spectral Clustering with Bag of Words 
 
-To improve the performance of document clustering, we tried clustering them with spectral clustering 
+To improve the performance of document clustering, we tried clustering socuments with spectral clustering. Instead of grouping points that are close to one another together like K-means approach, spectral clustering clusters points that connect to one another together. With many feature extraction methods including Doc2Vec and TF-IDF, spectral clustering with bag of words gives the best result. Unlike the result from Kmeans with Doc2Vec, this result groups athletes who play different sports. However, there is no group of royalty in this clustering result. 
+
+The result of spectral clustering with bag of words is the following. 
+
+
+<p align="center">
+  <table style="width: 120%; border: 1px solid black; border-collapse: collapse; margin-left: -65px;">
+      <tr style="border: 1px solid black">
+          <th>Cluster</th>
+          <th width="40%">Word Cloud</th> 
+          <th>Example</th>
+          <th>Number of Pages</th>
+          <th>Variance</th>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>1</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/1.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Elizabeth II, Freddie Mercury, Elon Musk, Stephen Hawking, Anthony Bourdain, Queen Victoria, Stan Lee, Princess Margaret, Countess of Snowdon,  Charles (Prince of Wales), Prince Philip (Duke of Edinburgh)</td>
+          <td>987</td>
+          <td>3.09e-09</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>2</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/2.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Antonio Maria Magro, Pete Davidson, Andrew Cunanan, Gianni Versace, Hailey Baldwin, Jeffrey Dahmer, Dolores O'Riordan, John Paul Getty III, Lisa Bonet, Chadwick Boseman</td>
+          <td>3474</td>
+          <td>4.60e-10</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>3</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/3.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Louis Tomlinson, Antonio Maria Magro, Dua Lipa, Pete Davidson, Andrew Cunanan, Hailey Baldwin, Dolores O'Riordan, John Paul Getty III, Lisa Bonet, Beto O'Rourke</td>
+          <td>3597</td>
+          <td>0.0055</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>4</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/4.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Elon Musk, Stephen Hawking, P. T. Barnum, Albert Einstein, Ted Kaczynski, Steve Jobs, William Shakespeare, Bill Gates, Rajneesh, Nikola Tesla</td>
+          <td>342</td>
+          <td>0.0322</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>5</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/5.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Donald Trump, George H. W. Bush, John McCain, Winston Churchill, Barack Obama, Adolf Hitler, Brett Kavanaugh, Mahatma Gandhi, George W. Bush, Martin Luther King Jr.</td>
+          <td>336</td>
+          <td>0.0429</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>6</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/6.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Elizabeth II, Queen Victoria, Princess Margaret, Countess of Snowdon, George VI, Mary, Queen of Scots, Edward VIII, George V, Elizabeth I of England, Joaquín "El Chapo" Guzmán, Henry VIII of England</td>
+          <td>253</td>
+          <td>0.0428</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>7</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/7.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Cristiano Ronaldo, Lionel Messi, Michael Jordan, Tom Brady, Kylian Mbappé, Mohamed Salah, Conor McGregor, Roger Federer, Virat Kohli, Neymar</td>
+          <td>387</td>
+          <td>0.0414</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>8</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/8.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Cardi B, Freddie Mercury, XXXTentacion, Ariana Grande, 6ix9ine, Avicii, Donald Glover, Nick Jonas, Post Malone, Michael Jackson</td>
+          <td>697</td>
+          <td>0.0269</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>9</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/9.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Jason Momoa, Stan Lee, Sylvester Stallone, Jennifer Aniston, Michael B. Jordan, Burt Reynolds, Ryan Reynolds, Chris Hemsworth, Josh Brolin, Gianni Versace</td>
+          <td>1930</td>
+          <td>0.0106</td>
+        </tr>
+        <tr style="border: 1px solid black">
+          <td>10</td>
+          <td><img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/clusters_n10_doc2vec/10.jpg" style="width: 250px; vertical-align: top"></td> 
+          <td>Priyanka Chopra, Sridevi, Tom Cruise, Demi Lovato, Clint Eastwood, Scarlett Johansson, Emily Blunt, Keanu Reeves, Bradley Cooper, John Krasinski</td>
+          <td>688</td>
+          <td>0.0247</td>
+        </tr>
+    </table>
+</p>
+
 [blog-1](blog-1.md)
