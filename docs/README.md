@@ -314,5 +314,12 @@ The result of spectral clustering with bag of words is the following.
     </table>
 </p>
 
+With this clustering, 55% of the dataset are actors/actresses, 22% are athletes, 6% are politicians, and 7% are singers. Royalties and successful people with other careers are in the rest 10%. 
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/spectral_clustering_piechart.jpg">
+</p>
+
+
 [blog-1](blog-1.md)
 [blog-2](blog-2.md)
