@@ -2,7 +2,9 @@
 
 # CS1951A Final Project
 
-[Blog Post 2](#Blog Post 2)
+[introduction](# Introduction)
+[blog-post-1](#Blog Post 1)
+[blog-post-2](#Blog Post 2)
 
 ## Introduction
 Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
