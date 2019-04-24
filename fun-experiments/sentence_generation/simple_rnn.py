@@ -59,7 +59,7 @@ class LanguageModel(object):
 def read_file(filename):
 	with open(filename, 'r') as f:
 		sentences = [line.split() for line in f.readlines()]
-	all_words = list(set([word.lower() for sentence in sentences for word in sentence]))
+	all_words = list(set([word for sentence in sentences for word in sentence]))
 	vocab, inverse_vocab = {}, {}
 	for i, word in enumerate(all_words):
 		vocab[word] = i
@@ -76,7 +76,7 @@ def tokenize_pad(sentences, window_size, vocab):
 	for sentence in sentences:
 		sentence_len = len(sentence)
 		sentence_lens.append(min(WINDOW_SIZE, len(sentence)))
-		preprocessed.append([vocab[word.lower()] for word in 
+		preprocessed.append([vocab[word] for word in 
 			(sentence + ['STOP']*(window_size-len(sentence)))[:window_size]]) # pad with STOP
 	return np.array(preprocessed), np.array(sentence_lens)
 
@@ -160,7 +160,7 @@ def main():
 		train(model, sess, saver, sentences, sentence_lens)
 
 	# generate sentences
-	start_word = list(vocab.keys())[0]
+	start_word = 'The'
 	print('Start word = "%s"' % start_word)
 	out = gen_text(model, sess, start_word, vocab, inverse_vocab)
 	print('Output:', out)
@@ -172,6 +172,5 @@ if __name__ == '__main__':
 	parser.add_argument("--restore", action='store_true')
 	args = parser.parse_args()
 	RESTORE = args.restore
-	print('RESTORE:', RESTORE)
 
 	main()
