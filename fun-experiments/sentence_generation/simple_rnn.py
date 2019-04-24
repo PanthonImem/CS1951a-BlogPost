@@ -10,11 +10,11 @@ CKPT_DIR = 'checkpoints/'
 
 RESTORE = False
 
-WINDOW_SIZE = 50
-BATCH_SIZE = 50
-EMBEDDING_SIZE = 128
-RNN_SIZE = 256
-EPOCH_NUM = 20
+WINDOW_SIZE 	= 50
+BATCH_SIZE 		= 50
+EMBEDDING_SIZE 	= 128
+RNN_SIZE 		= 256
+EPOCH_NUM 		= 20
 
 class LanguageModel(object):
 	def __init__(self, vocab_size):
@@ -32,7 +32,7 @@ class LanguageModel(object):
 	def forward(self):
 		# embedding
 		E = tf.Variable(tf.truncated_normal([self.vocab_size, EMBEDDING_SIZE], stddev=0.01))
-		embeddings = tf.nn.embedding_lookup(E, self.inputs)
+		embeddings = tf.nn.embedding_lookup(E, self.inputs) 
 
 		# rnn
 		rnn = tf.contrib.rnn.LSTMCell(RNN_SIZE)
@@ -77,7 +77,7 @@ def tokenize_pad(sentences, window_size, vocab):
 		sentence_len = len(sentence)
 		sentence_lens.append(min(WINDOW_SIZE, len(sentence)))
 		preprocessed.append([vocab[word] for word in 
-			(sentence + ['STOP']*(window_size-len(sentence)))[:window_size]]) # pad with STOP
+			(sentence + ['STOP']*(window_size-sentence_len))[:window_size]]) # pad with STOP
 	return np.array(preprocessed), np.array(sentence_lens)
 
 def shuffle(l):
