@@ -101,5 +101,5 @@ print("num words :", len(words))
 #     if (i+1) % 500 == 0:
 #         torch.save(net, "net-weights.model")
 for i in range(100):
-    print(sample(net, words, 500, power=1.3))
+    print(sample(net, words, 500, power=1.2))
     print("------")
