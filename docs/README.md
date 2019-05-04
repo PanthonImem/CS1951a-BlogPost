@@ -4,6 +4,7 @@
 
 [blog-1](blog-1.md)
 [blog-2](blog-2.md)
+[blog-3](blog-3.md)
 
 ## Introduction
 Wikipedia is a rich source of human-readable information on a vast variety of subjects. Automatic extraction of its content should prove useful for many data related projects. We aim to extract insights from Wikipedia articles on people (David Bowie, etc.) using natural language processing (NLP) techniques. 
@@ -337,3 +338,4 @@ To further develop the accuracy test, we should create labels for each person. O
 
 [blog-1](blog-1.md)
 [blog-2](blog-2.md)
+[blog-3](blog-3.md)
