@@ -17,6 +17,7 @@ Our point of entry is https://en.wikipedia.org/wiki/Category:Births_by_century. 
 
 We made a million requests to Wikipedia asking for page views of each article starting from the first day of 2018 and ending at the last. Below we give the top 20 most popular people pages and their view counts.
 
+<p align="center">
 | Rank | Name              | Views    |
 | ---: | :---------------- | :------- |
 |    1 | Louis Tomlinson   | 32647670 |
@@ -39,12 +40,12 @@ We made a million requests to Wikipedia asking for page views of each article st
 |   18 | John McCain       | 11550433 |
 |   19 | Queen Victoria    | 11415901 |
 |   20 | Stan Lee          | 11352622 |
-
+</p>
 
 From this, we took the 10,000 most viewed pages as our subset. The cutoff at 10,000 is really quite arbitrary, but these top 10,000 articles are responsible for approximately half the total traffic.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:95%;">
+  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:70%;">
 </p>
 
 Now, it has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called lead. In our case, the lead section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. While some pages have very short lead sections, most of the pages in the top 10,000 have considerably longer leads (since there are more to be said about popular people) than the rest of the corpus. Thus we were able to obtain all the data we hoped for. 
@@ -150,7 +151,7 @@ Once we obtain the representations of all the documents, we utilize the k-means 
 Clustering allows us to better understand our dataset. From the table, we see that there are 6 main "categories" in our dataset: (1) athletes (Clusters 1, 7), (2) royalties (Clusters 2, 6), (3) actors (Clusters 3, 9, 10), (4) businessmen (Cluster 4), (5) politicians (Cluster 5), and (6) singers (Cluster 8). From the wordclouds, we also see that the important words are corresponding to each cluster. For instance, the word "work" was extracted as the most important word in Cluster 4, which represent those best known for their career successes such as Elon Musk, Albert Einstein and William Shakespeare. Moreover, we notice that the dataset is highly imbalanced as shown in the chart below. More than half of the dataset are actors/actresses or movies-related figures, while only 3% are political figures.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_kmeans.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_kmeans.png" style="width:70%;">
 </p>
 
 However, there are some issues concerning our clustering. The first issue is a trade off between a large and small numbers of clusters. When we have too many clusters, some categories might be duplicated or very similar as the results we obtained when having 10 clusters. Yet, we found some interesting clusters such as one which mostly contains  Marvel celebrities including Ryan Reynolds, Stan Lee, and Jason Momoa, and another cluster which mostly contains football players. On the other hand, when we have a small number of clusters, a cluster may include irrelevant pages. As an example, Anthony Bourdain who was a chef was put in the royal families cluster (Cluster 2). While solving the trade off problem is not trivial, a possible work around for this is using alternative embeddings which better represent information about each cluster. As an idea, if we want to cluster documents based on occupations, we can build a neural network which embeds documents and is trained to predict occupations.
@@ -243,7 +244,7 @@ Seeing that K-Means clustering could not give us a perfect result, we try anothe
 Below is the pie chart showing the percentage of people in each career grouped by the model.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_spectral.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_spectral.png" style="width:70%;">
 </p>
 
 Notice that spectral clustering on bag of words is better than k-means clustering on doc2vec in categorizing athletes who compete in different sports and actors who are known for different types of media (i.e. TV show or movie). Nevertheless, our spectral clustering cannot capture other career groups apart from athletes, actors, singers, and politicians, while our k-means clustering model can group royalties and businessmen together. This observation has not taken into account the accuracy of each models, which we will be discussed further later in this report.
@@ -261,19 +262,19 @@ In the preprocessing step, we filtered for only those with more than 100 tokens 
 
 To generate the text, we softmaxed the last layer of the network, used the output as the word transition kernel and sampled from the Markov chain. After we trained for 50,000 samples each of window size 1,000 on the top 100,000 lead sections, the network could learn to keep gender pronouns consistent (using she for females) within the same sentence, but not within one section. Using the recurrent neural network, we were able to generate texts such as the following:
 
-<p>
+<p><i>
   >>> anne PROPN PROPN ( born december NUM , NUM ) is an american singer - songwriter . she has fought several small - scale roles , including the title role in the films PROPN PROPN in chicago , VERB on hell ( NUM ) and the PROPN games ( NUM ) . his films gained notoriety for her ADJ stage persona - NOUN in the movie PROPN ( NUM ) , PROPN PROPN 's PROPN in tamil and juliet kapoor ( NUM ) and le ORG in PROPN ( NUM ) and is shown in the south korea NOUN movement , ADJ PROPN PROPN PROPN , and the PROPN PROPN instructor . PROPN made her debut in NUM for PROPN PROPN in NUM , was soon discovered in the telugu film al PROPN , in india 's NOUN in telugu . she married NUM children in his own reality show , PROPN PROPN ( NUM ) , as well as his long - running comedy NOUN , PROPN ( NUM ) .
-</p>
+</i></p>
 
-<p>
+<p><i>
   >>> louise PROPN ( born december NUM , NUM ) is an american country music singer - songwriter , musician , and actress . she has received a number of NUM awards , and an academy award nomination and a grammy award for best featured actress in a musical . she is best known for her roles on the nbc sitcom the dead . she is also the co - creator of ORG ORG &amp; ORG . in NUM PROPN became the highest - paid cast member on season NUM of the big brother : NOUN .
-</p>
+</i></p>
 
 Due to the skewed dataset, our model likely generated paragraphs about celebrities as shown above. However, it could also generate a paragraph about a professor as follow:
 
-<p>
+<p><i>
   >>> joseph edward PROPN " PROPN " PROPN iii ( NUM march NUM – NUM october NUM ) was a german philosopher , professor , NOUN , NOUN , journalist , and NOUN who supported the discipline of NOUN and on developing a formal newspaper , such as the NORP PROPN ( NUM ) and the PROPN PROPN of PROPN ( NUM ) . he studied at the centre of the arts in new york university , where he worked as a teacher , who was an assistant professor in the department of philosophy at the massachusetts institute of technology . before entering politics , he emigrated to new york city as a teacher and NOUN . he studied under the new york ORG school . a graduate of harvard university , ORG is a graduate of the secretary of fine review , PROPN PROPN and PROPN holmes , in which he has been a model and journalist . NORP served as a lawyer of the ORG society of canada .
-</p> 
+</i></p> 
 
 ### Additional Work
 
@@ -285,68 +286,73 @@ Our first attempt was to to automatically extract occupation titles from the "de
 Below shows examples of page descriptions and the extracted occupations.
 
 Good examples:
-<table style="width:100%">
-  <tr>
-    <th>Description</th>
-    <th>Extracted Labels</th> 
-  </tr>
-  <tr>
-    <td>Bangladeshi physicist</td>
-    <td>'physicist'</td> 
-  </tr>
-  <tr>
-    <td>Tongan politician</td>
-    <td>'politician'</td> 
-  </tr>
-  <tr>
-    <td>United States rapper</td>
-    <td>'rapper'</td> 
-  </tr>
-  <tr>
-    <td>anonymous writer</td>
-    <td>'writer'</td> 
-  </tr>
-  <tr>
-    <td>Current Mayor of Chittagong City Corporation</td>
-    <td>'mayor'</td> 
-  </tr>
-</table>
+
+<p align="center">
+  <table style="width:100%">
+    <tr>
+      <th>Description</th>
+      <th>Extracted Labels</th> 
+    </tr>
+    <tr>
+      <td>Bangladeshi physicist</td>
+      <td>'physicist'</td> 
+    </tr>
+    <tr>
+      <td>Tongan politician</td>
+      <td>'politician'</td> 
+    </tr>
+    <tr>
+      <td>United States rapper</td>
+      <td>'rapper'</td> 
+    </tr>
+    <tr>
+      <td>anonymous writer</td>
+      <td>'writer'</td> 
+    </tr>
+    <tr>
+      <td>Current Mayor of Chittagong City Corporation</td>
+      <td>'mayor'</td> 
+    </tr>
+  </table>
+</p>
 
 Bad examples:
-<table style="width:100%">
-  <tr>
-    <th>Description</th>
-    <th>Extracted Labels</th> 
-  </tr>
-  <tr>
-    <td>New Zealand drifting race driver</td>
-    <td>'new', 'race', 'driver'</td> 
-  </tr>
-  <tr>
-    <td>American record producer</td>
-    <td>'record'</td> 
-  </tr>
-  <tr>
-    <td>professional wrestler</td>
-    <td>'professional'</td> 
-  </tr>
-  <tr>
-    <td>Olympic judoka</td>
-    <td>'olympic'</td> 
-  </tr>
-  <tr>
-    <td>Baritone saxophone player based in New York City</td>
-    <td>'baritone', 'saxophone', 'player', 'york'</td> 
-  </tr>
-</table>
+<p align="center">
+  <table style="width:100%">
+    <tr>
+      <th>Description</th>
+      <th>Extracted Labels</th> 
+    </tr>
+    <tr>
+      <td>New Zealand drifting race driver</td>
+      <td>'new', 'race', 'driver'</td> 
+    </tr>
+    <tr>
+      <td>American record producer</td>
+      <td>'record'</td> 
+    </tr>
+    <tr>
+      <td>professional wrestler</td>
+      <td>'professional'</td> 
+    </tr>
+    <tr>
+      <td>Olympic judoka</td>
+      <td>'olympic'</td> 
+    </tr>
+    <tr>
+      <td>Baritone saxophone player based in New York City</td>
+      <td>'baritone', 'saxophone', 'player', 'york'</td> 
+    </tr>
+  </table>
+</p>
 
 While this method of labelling can give us unlimited choices of labels, the disadvantages are:
 
 <ol>
-  <i>Two different labels, for example ‘singer’ and ‘rapper’, might be able to be grouped into one. Since there could be unlimited choices of labels generated but a very limited ways to cluster, the amount of work to group labels together is tremendous.</i>
-  <i>The implementation cannot perfectly extract words of occupations as can be seen in bad examples.</i>
-  <i>Some occupation nouns in the description cannot represent the category a person should fall into. For example, the word ‘player’ might be seen to belong to ‘sport’ category although it might come from a description about a ‘saxophone player’.</i>
-  <i>432 pages do not have description, which accounts for 0.432% of our dataset. </i>
+  <li>Two different labels, for example ‘singer’ and ‘rapper’, might be able to be grouped into one. Since there could be unlimited choices of labels generated but a very limited ways to cluster, the amount of work to group labels together is tremendous.</li>
+  <li>The implementation cannot perfectly extract words of occupations as can be seen in bad examples.</li>
+  <li>Some occupation nouns in the description cannot represent the category a person should fall into. For example, the word ‘player’ might be seen to belong to ‘sport’ category although it might come from a description about a ‘saxophone player’.</li>
+  <li>432 pages do not have description, which accounts for 0.432% of our dataset. </li>
 </ol>
 
 #### Label Generation by Word Detection
@@ -357,7 +363,7 @@ This method can only be done if we already have a clustering result that every c
 With this implementation on actors, singers, politicians, athletes, businesspeople, and royalties, we obtain the following percentage of people in each occupation. 
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_detect.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_detect.png" style="width:70%;">
 </p>
 
 To compute the accuracy of our clustering model based on labels obtained from word detection, we use the following equations.
@@ -382,78 +388,82 @@ In the other words, the accuracy within the cluster tells us how robust each clu
 
 With this implementation on athletes, actors, politicians, singers, royalties, and businessmen categories, our k-means clustering on doc2vec gives us 67.03% total accuracy. 
 
-<table style="width:100%">
-  <tr>
-    <th>Career</th>
-    <th>Accuracy in the cluster</th> 
-    <th>Accuracy of the label type</th>
-  </tr>
-  <tr>
-    <td>Actors</td>
-    <td>70.83%</td> 
-    <td>93.22%</td> 
-  </tr>
-  <tr>
-    <td>Businesspeople</td>
-    <td>22.19%</td> 
-    <td>17.69%</td> 
-  </tr>
-  <tr>
-    <td>Politicians</td>
-    <td>87.33%</td> 
-    <td>42.68%</td> 
-  </tr>
-  <tr>
-    <td>Royalties</td>
-    <td>20.86%</td> 
-    <td>69.85%</td> 
-  </tr>
-  <tr>
-    <td>Singers</td>
-    <td>93.94%</td> 
-    <td>46.48%</td> 
-  </tr>
-  <tr>
-    <td>Athletes</td>
-    <td>98.94%</td> 
-    <td>50.51%</td> 
-  </tr>
-</table>
+<p align="center">
+  <table style="width:100%">
+    <tr>
+      <th>Career</th>
+      <th>Accuracy in the cluster</th> 
+      <th>Accuracy of the label type</th>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td>70.83%</td> 
+      <td>93.22%</td> 
+    </tr>
+    <tr>
+      <td>Businesspeople</td>
+      <td>22.19%</td> 
+      <td>17.69%</td> 
+    </tr>
+    <tr>
+      <td>Politicians</td>
+      <td>87.33%</td> 
+      <td>42.68%</td> 
+    </tr>
+    <tr>
+      <td>Royalties</td>
+      <td>20.86%</td> 
+      <td>69.85%</td> 
+    </tr>
+    <tr>
+      <td>Singers</td>
+      <td>93.94%</td> 
+      <td>46.48%</td> 
+    </tr>
+    <tr>
+      <td>Athletes</td>
+      <td>98.94%</td> 
+      <td>50.51%</td> 
+    </tr>
+  </table>
+</p>
 
 Similarly, using word detection model, we get that our spectral clustering model on bag of words achieves 71.73% total accuracy. Notice that the careers that appear in this clustering are only actors, politicians, singers, and athletes. 
 
-<table style="width:100%">
-  <tr>
-    <th>Career</th>
-    <th>Accuracy in the cluster</th> 
-    <th>Accuracy of the label type</th>
-  </tr>
-  <tr>
-    <td>Actors</td>
-    <td>71.39%</td> 
-    <td>95.68%</td> 
-  </tr>
-  <tr>
-    <td>Politicians</td>
-    <td>68.97%</td> 
-    <td>65.88%</td> 
-  </tr>
-  <tr>
-    <td>Singers</td>
-    <td>81.84%</td> 
-    <td>50.24%</td> 
-  </tr>
-  <tr>
-    <td>Athletes</td>
-    <td>94.76%</td> 
-    <td>79.37%</td> 
-  </tr>
-  <tr>
-    <td>Others</td>
-    <td>51.78%</td> 
-    <td>60.78%</td> 
-  </tr>
-</table>
+<p align="center">
+  <table style="width:100%">
+    <tr>
+      <th>Career</th>
+      <th>Accuracy in the cluster</th> 
+      <th>Accuracy of the label type</th>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td>71.39%</td> 
+      <td>95.68%</td> 
+    </tr>
+    <tr>
+      <td>Politicians</td>
+      <td>68.97%</td> 
+      <td>65.88%</td> 
+    </tr>
+    <tr>
+      <td>Singers</td>
+      <td>81.84%</td> 
+      <td>50.24%</td> 
+    </tr>
+    <tr>
+      <td>Athletes</td>
+      <td>94.76%</td> 
+      <td>79.37%</td> 
+    </tr>
+    <tr>
+      <td>Others</td>
+      <td>51.78%</td> 
+      <td>60.78%</td> 
+    </tr>
+  </table>
+</p>
 
 With these accuracy statistics, we might conclude that k-means clustering gives more robust clusters (i.e. fewer errors in each cluster), while clusters from spectral clustering can better represent each career type.
 
