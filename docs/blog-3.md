@@ -260,19 +260,19 @@ In the preprocessing step, we filtered for only those with more than 100 tokens 
 
 To generate the text, we softmaxed the last layer of the network, used the output as the word transition kernel and sampled from the Markov chain. After we trained for 50,000 samples each of window size 1,000 on the top 100,000 lead sections, the network could learn to keep gender pronouns consistent (using she for females) within the same sentence, but not within one section. Using the recurrent neural network, we were able to generate texts such as the following:
 
-<p><i>
-  >>> anne PROPN PROPN ( born december NUM , NUM ) is an american singer - songwriter . she has fought several small - scale roles , including the title role in the films PROPN PROPN in chicago , VERB on hell ( NUM ) and the PROPN games ( NUM ) . his films gained notoriety for her ADJ stage persona - NOUN in the movie PROPN ( NUM ) , PROPN PROPN 's PROPN in tamil and juliet kapoor ( NUM ) and le ORG in PROPN ( NUM ) and is shown in the south korea NOUN movement , ADJ PROPN PROPN PROPN , and the PROPN PROPN instructor . PROPN made her debut in NUM for PROPN PROPN in NUM , was soon discovered in the telugu film al PROPN , in india 's NOUN in telugu . she married NUM children in his own reality show , PROPN PROPN ( NUM ) , as well as his long - running comedy NOUN , PROPN ( NUM ) .
-</i></p>
+<p style="font-family: courier; background: #fffadd">
+  anne PROPN PROPN ( born december NUM , NUM ) is an american singer - songwriter . she has fought several small - scale roles , including the title role in the films PROPN PROPN in chicago , VERB on hell ( NUM ) and the PROPN games ( NUM ) . his films gained notoriety for her ADJ stage persona - NOUN in the movie PROPN ( NUM ) , PROPN PROPN 's PROPN in tamil and juliet kapoor ( NUM ) and le ORG in PROPN ( NUM ) and is shown in the south korea NOUN movement , ADJ PROPN PROPN PROPN , and the PROPN PROPN instructor . PROPN made her debut in NUM for PROPN PROPN in NUM , was soon discovered in the telugu film al PROPN , in india 's NOUN in telugu . she married NUM children in his own reality show , PROPN PROPN ( NUM ) , as well as his long - running comedy NOUN , PROPN ( NUM ) .
+</p>
 
-<p><i>
-  >>> louise PROPN ( born december NUM , NUM ) is an american country music singer - songwriter , musician , and actress . she has received a number of NUM awards , and an academy award nomination and a grammy award for best featured actress in a musical . she is best known for her roles on the nbc sitcom the dead . she is also the co - creator of ORG ORG &amp; ORG . in NUM PROPN became the highest - paid cast member on season NUM of the big brother : NOUN .
-</i></p>
+<p style="font-family: courier; background: #fffadd">
+  louise PROPN ( born december NUM , NUM ) is an american country music singer - songwriter , musician , and actress . she has received a number of NUM awards , and an academy award nomination and a grammy award for best featured actress in a musical . she is best known for her roles on the nbc sitcom the dead . she is also the co - creator of ORG ORG &amp; ORG . in NUM PROPN became the highest - paid cast member on season NUM of the big brother : NOUN .
+</p>
 
 Due to the skewed dataset, our model likely generated paragraphs about celebrities as shown above. However, it could also generate a paragraph about a professor as follow:
 
-<p><i>
-  >>> joseph edward PROPN " PROPN " PROPN iii ( NUM march NUM – NUM october NUM ) was a german philosopher , professor , NOUN , NOUN , journalist , and NOUN who supported the discipline of NOUN and on developing a formal newspaper , such as the NORP PROPN ( NUM ) and the PROPN PROPN of PROPN ( NUM ) . he studied at the centre of the arts in new york university , where he worked as a teacher , who was an assistant professor in the department of philosophy at the massachusetts institute of technology . before entering politics , he emigrated to new york city as a teacher and NOUN . he studied under the new york ORG school . a graduate of harvard university , ORG is a graduate of the secretary of fine review , PROPN PROPN and PROPN holmes , in which he has been a model and journalist . NORP served as a lawyer of the ORG society of canada .
-</i></p> 
+<p style="font-family: courier; background: #fffadd">
+  joseph edward PROPN " PROPN " PROPN iii ( NUM march NUM – NUM october NUM ) was a german philosopher , professor , NOUN , NOUN , journalist , and NOUN who supported the discipline of NOUN and on developing a formal newspaper , such as the NORP PROPN ( NUM ) and the PROPN PROPN of PROPN ( NUM ) . he studied at the centre of the arts in new york university , where he worked as a teacher , who was an assistant professor in the department of philosophy at the massachusetts institute of technology . before entering politics , he emigrated to new york city as a teacher and NOUN . he studied under the new york ORG school . a graduate of harvard university , ORG is a graduate of the secretary of fine review , PROPN PROPN and PROPN holmes , in which he has been a model and journalist . NORP served as a lawyer of the ORG society of canada .
+</p>
 
 ### Additional Work
 
@@ -475,7 +475,7 @@ Firstly, we tried Nearest Neighbor Search to find the closest match of each pers
 
 In the first try, we have a dummy variable for every category that appears more than 7 times. The predictions of the 17 most viewed Wikipedia pages are as follow.
 
-<p align="center">
+<p align="center" style="margin-left: -60px;">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/untokenized.jpg">
 </p>
 
@@ -483,7 +483,7 @@ To improve the predictions, we tokenize the categories and have important words 
 
 Thus, we tokenize important categories and perform Nearest Neighbor Search with the new one-hot matrix. The predictions from this try is more accurate.
 
-<p align="center">
+<p align="center" style="margin-left: -60px;">
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized.jpg">
 </p>
 
