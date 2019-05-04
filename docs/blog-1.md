@@ -223,6 +223,26 @@ Clustering allows us to better understand out dataset. From the table, we see th
 
  However, there are some issues concerning our clustering. The first issue is a trade off between a large and small numbers of clusters. When we have too many clusters, some categories might be duplicated or very similar as the results we obtained when having 10 clusters. On the other hand, when we have a small number of clusters, a cluster may include irrelevant pages. As an example, Anthony Bourdain who was a chef was put in the royal families cluster (Cluster 2). While solving the trade off problem is not trivial, a possible work around for this is using alternative embeddings which better represent information about each cluster. As an idea, if we want to cluster documents based on occupations, we can build a neural network which enbeds documents and is trained to predict occupations.
 
+$$ 
+\text{Total accuracy} = 
+    \dfrac{\text{number of matches for identificable clusters and labels from word detection}}
+    {\text{total number of pages}}
+$$
+$$ 
+\text{Accuracy in the cluster} = 
+    \dfrac{\text{number of matches for identificable clusters and labels from word detection in that careertotal number of pages in the clusters of that career}}
+    {\text{total number of pages in the clusters of that career}}
+$$
+$$ 
+\text{Accuracy of the label type} = 
+    \dfrac{\text{number of matches for identificable clusters and labels from word detection in that career}}
+    {\text{total number of pages with a label of that career}}
+$$
+
+In the other words, the accuracy within the cluster tells us how robust each cluster is while the accuracy of the label type indicates how good the cluster can group all pages with a particular label.
+
+With this implementation on athletes, actors, politicians, singers, royalties, and businessmen categories, our k-means clustering on doc2vec gives us 67.03% total accuracy. 
+
 
 
 
