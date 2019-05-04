@@ -17,7 +17,6 @@ Our point of entry is https://en.wikipedia.org/wiki/Category:Births_by_century. 
 
 We made a million requests to Wikipedia asking for page views of each article starting from the first day of 2018 and ending at the last. Below we give the top 20 most popular people pages and their view counts.
 
-<p align="center">
 | Rank | Name              | Views    |
 | ---: | :---------------- | :------- |
 |    1 | Louis Tomlinson   | 32647670 |
@@ -40,12 +39,11 @@ We made a million requests to Wikipedia asking for page views of each article st
 |   18 | John McCain       | 11550433 |
 |   19 | Queen Victoria    | 11415901 |
 |   20 | Stan Lee          | 11352622 |
-</p>
 
 From this, we took the 10,000 most viewed pages as our subset. The cutoff at 10,000 is really quite arbitrary, but these top 10,000 articles are responsible for approximately half the total traffic.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:70%;">
+  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/page-views.png" style="width:600px;">
 </p>
 
 Now, it has never been a matter of debate that the most insightful part of a Wikipedia article is the so-called lead. In our case, the lead section tells us what the person does, what they are known for and, in general, why they deserve a Wikipedia article. While some pages have very short lead sections, most of the pages in the top 10,000 have considerably longer leads (since there are more to be said about popular people) than the rest of the corpus. Thus we were able to obtain all the data we hoped for. 
@@ -151,7 +149,7 @@ Once we obtain the representations of all the documents, we utilize the k-means 
 Clustering allows us to better understand our dataset. From the table, we see that there are 6 main "categories" in our dataset: (1) athletes (Clusters 1, 7), (2) royalties (Clusters 2, 6), (3) actors (Clusters 3, 9, 10), (4) businessmen (Cluster 4), (5) politicians (Cluster 5), and (6) singers (Cluster 8). From the wordclouds, we also see that the important words are corresponding to each cluster. For instance, the word "work" was extracted as the most important word in Cluster 4, which represent those best known for their career successes such as Elon Musk, Albert Einstein and William Shakespeare. Moreover, we notice that the dataset is highly imbalanced as shown in the chart below. More than half of the dataset are actors/actresses or movies-related figures, while only 3% are political figures.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_kmeans.png" style="width:70%;">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_kmeans.png" style="width:500px;">
 </p>
 
 However, there are some issues concerning our clustering. The first issue is a trade off between a large and small numbers of clusters. When we have too many clusters, some categories might be duplicated or very similar as the results we obtained when having 10 clusters. Yet, we found some interesting clusters such as one which mostly contains  Marvel celebrities including Ryan Reynolds, Stan Lee, and Jason Momoa, and another cluster which mostly contains football players. On the other hand, when we have a small number of clusters, a cluster may include irrelevant pages. As an example, Anthony Bourdain who was a chef was put in the royal families cluster (Cluster 2). While solving the trade off problem is not trivial, a possible work around for this is using alternative embeddings which better represent information about each cluster. As an idea, if we want to cluster documents based on occupations, we can build a neural network which embeds documents and is trained to predict occupations.
@@ -244,7 +242,7 @@ Seeing that K-Means clustering could not give us a perfect result, we try anothe
 Below is the pie chart showing the percentage of people in each career grouped by the model.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_spectral.png" style="width:70%;">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_spectral.png" style="width:500px;">
 </p>
 
 Notice that spectral clustering on bag of words is better than k-means clustering on doc2vec in categorizing athletes who compete in different sports and actors who are known for different types of media (i.e. TV show or movie). Nevertheless, our spectral clustering cannot capture other career groups apart from athletes, actors, singers, and politicians, while our k-means clustering model can group royalties and businessmen together. This observation has not taken into account the accuracy of each models, which we will be discussed further later in this report.
@@ -363,23 +361,20 @@ This method can only be done if we already have a clustering result that every c
 With this implementation on actors, singers, politicians, athletes, businesspeople, and royalties, we obtain the following percentage of people in each occupation. 
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_detect.png" style="width:70%;">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/pie_detect.png" style="width:500px;">
 </p>
 
 To compute the accuracy of our clustering model based on labels obtained from word detection, we use the following equations.
 
-$$ 
-\text{Total accuracy} = 
+$$ \text{Total accuracy} = 
     \dfrac{\text{number of matches for identificable clusters and labels from word detection}}
     {\text{total number of pages}}
 $$
-$$ 
-\text{Accuracy in the cluster} = 
+$$ \text{Accuracy in the cluster} = 
     \dfrac{\text{number of matches for identificable clusters and labels from word detection in that careertotal number of pages in the clusters of that career}}
     {\text{total number of pages in the clusters of that career}}
 $$
-$$ 
-\text{Accuracy of the label type} = 
+$$ \text{Accuracy of the label type} = 
     \dfrac{\text{number of matches for identificable clusters and labels from word detection in that career}}
     {\text{total number of pages with a label of that career}}
 $$
