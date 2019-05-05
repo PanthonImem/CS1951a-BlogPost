@@ -253,7 +253,7 @@ As can be seen above, these two methods of clustering supports our hypothesis th
 As our dataset is imbalanced, we are motivated to work on unsupervised tasks. We trained a word-based language model to capture the underlying structure of the leads of the Wikipedia pages. Our model is constructed by an embedding layer, two cells of long short-term memories (LSTMs), and a linear layer as shown in the diagram below. Outputs of the network are probabilities for predicting the next words. We train the network to optimize the cross entropy loss between actual next words and predicted words. 
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/network_.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/network.png">
 </p>
 
 In the preprocessing step, we filtered for only those with more than 100 tokens (which turns out to be a little over half.)  Uncommon words were replaced by their part of speech using a different pre-trained neural network tagger. We also converted all words to lower cases and split punctuations with space.
@@ -367,7 +367,7 @@ With this implementation on actors, singers, politicians, athletes, businesspeop
 To compute the accuracy of our clustering model based on labels obtained from word detection, we use the following equations.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/accuracy_eq.png" style="width:500px;">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/accuracy_eq_.png" style="width:700px;">
 </p>
 
 In the other words, the accuracy within the cluster tells us how robust each cluster is while the accuracy of the label type indicates how good the cluster can group all pages with a particular label.
@@ -482,7 +482,7 @@ Thus, we tokenize important categories and perform Nearest Neighbor Search with 
 We also experimented with Latent Dirichlet Allocation for soft assignment of topics. The top words for each of the ten topics we got are as follow:
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/lda_res.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/lda_res.png" style="width:700px;">
 </p>
 
 We can see that this is pretty similar to the results we got from other types of clustering. 
@@ -493,7 +493,7 @@ Altogether, the 10000 lead sections contain 5461 unique words. To quantify the i
 The main insight of tf-idf is that important words should give information about the articles containing them. In particular, they should appear rather frequently in documents that contain them, but not so ubiquitously that they show up in every other article. The simplest of the tf-idf formulae articulating this train of thought is
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tfidf_eq.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tfidf_eq.png" style="width:500px;">
 </p>
 
 Using the tf-idf formula above to rank the words gives us an expected result, which we show in the wordcloud below.
@@ -517,7 +517,7 @@ Words like “cave” and “pompey” and “vaccine” definitely tell us a lo
 After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls probabilistic idf.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/idf_eq.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/idf_eq.png" style="width:250px;">
 </p>
 
 where $n_w$ is the number of articles containing the term $w$.
