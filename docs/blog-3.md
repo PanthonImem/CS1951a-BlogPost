@@ -253,7 +253,7 @@ As can be seen above, these two methods of clustering supports our hypothesis th
 As our dataset is imbalanced, we are motivated to work on unsupervised tasks. We trained a word-based language model to capture the underlying structure of the leads of the Wikipedia pages. Our model is constructed by an embedding layer, two cells of long short-term memories (LSTMs), and a linear layer as shown in the diagram below. Outputs of the network are probabilities for predicting the next words. We train the network to optimize the cross entropy loss between actual next words and predicted words. 
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/network.png">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/network_.png">
 </p>
 
 In the preprocessing step, we filtered for only those with more than 100 tokens (which turns out to be a little over half.)  Uncommon words were replaced by their part of speech using a different pre-trained neural network tagger. We also converted all words to lower cases and split punctuations with space.
@@ -276,7 +276,7 @@ Due to the skewed dataset, our model likely generated paragraphs about celebriti
 
 ### Additional Work
 
-#### Label Extraction from ‘Description’ Property
+#### Label Extraction from ‘Description’ Property 
 One of the biggest challenges of the Wikipedia dataset is the lack of high-quality labels. In this section, we describe our attempts to automatically extracting occupation titles from Wikipedia pages. Since all Wikipedia pages do not share a fixed format, we cannot simply scrape an occupation title from the text. Some pages have an infobox summarizing the biography of a person. However, not all infoboxes include occupations and some pages have different formats. 
 
 Our first attempt was to to automatically extract occupation titles from the "description" property of Wikipedia pages using a pre-trained word2vec model. To be clear, some examples of description properties are "Italian contemporary artist", "Lesotho politician", and "Chinese print artist". At this point, you might have noticed that descriptions are very close to what we want, but some adjectives need to be removed. We then compute the "occupation-likeliness" score of each word in description using cosine similarity of the word's embedding and the embedding of the word "job" or "occupation". Additionally, most adjectives are related to nationalities. So we subtract the score with cosine similarity of words like "nationality" or "country" as well.
@@ -366,18 +366,9 @@ With this implementation on actors, singers, politicians, athletes, businesspeop
 
 To compute the accuracy of our clustering model based on labels obtained from word detection, we use the following equations.
 
-$$ \text{Total accuracy} = 
-    \dfrac{\text{number of matches for identificable clusters and labels from word detection}}
-    {\text{total number of pages}}
-$$
-$$ \text{Accuracy in the cluster} = 
-    \dfrac{\text{number of matches for identificable clusters and labels from word detection in that careertotal number of pages in the clusters of that career}}
-    {\text{total number of pages in the clusters of that career}}
-$$
-$$ \text{Accuracy of the label type} = 
-    \dfrac{\text{number of matches for identificable clusters and labels from word detection in that career}}
-    {\text{total number of pages with a label of that career}}
-$$
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/accuracy_eq.png" style="width:500px;">
+</p>
 
 In the other words, the accuracy within the cluster tells us how robust each cluster is while the accuracy of the label type indicates how good the cluster can group all pages with a particular label.
 
@@ -487,4 +478,50 @@ Thus, we tokenize important categories and perform Nearest Neighbor Search with 
  <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tokenized.jpg">
 </p>
 
+#### Topic Modeling: Latent Dirichlet Allocation
+We also experimented with Latent Dirichlet Allocation for soft assignment of topics. The top words for each of the ten topics we got are as follow:
 
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/lda_res.png">
+</p>
+
+We can see that this is pretty similar to the results we got from other types of clustering. 
+
+#### Keyword Extraction: Term Frequency-Inverse Document Frequency
+Altogether, the 10000 lead sections contain 5461 unique words. To quantify the importance of each word, we use a popular keyword extraction technique called term frequency-inverse document frequency (tf-idf.)
+
+The main insight of tf-idf is that important words should give information about the articles containing them. In particular, they should appear rather frequently in documents that contain them, but not so ubiquitously that they show up in every other article. The simplest of the tf-idf formulae articulating this train of thought is
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/tfidf_eq.png">
+</p>
+
+Using the tf-idf formula above to rank the words gives us an expected result, which we show in the wordcloud below.
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_names.png">
+</p>
+
+We can see that the most important words are names, which makes sense because important words should distinguish between articles. But not very interesting because we already know that these words are important. To counteract this phenomenon, we only consider common English words, i.e., words you would see in an English dictionary. This leaves us with 3815 unique words, the wordcloud of whose is shown below.
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_bad_words.png">
+</p>
+
+Words like “cave” and “pompey” and “vaccine” definitely tell us a lot about the articles containing them, but they don’t cover enough of the corpus to give us a big picture. (If you read on, you will see that over half of the articles are about actors or actresses, but it’s impossible to tell just looking at these words that there are any famous actors.) Upon closer inspection, these words only appear in very few documents, so their idf-weights are very high despite not appearing a lot. We experimented with other tf-idf formula:
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud_alternate1.png">
+</p>
+
+After a few different experiment with weighting, we ended up with a method to calculate idf which wikipedia calls probabilistic idf.
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/idf_eq.png">
+</p>
+
+where $n_w$ is the number of articles containing the term $w$.
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/PanthonImem/CS1951a-BlogPost/master/Photos/wordcloud.png">
+</p>
