@@ -24,7 +24,7 @@ def threadify(func):
     return run
 
 def load_names():
-    
+
     def get_names(url):
         resp = requests.get(url)
         if resp.status_code != 200:
@@ -52,10 +52,10 @@ def load_names():
             print("error when collecting:", url)
 
     def main():
-        LIVING_PEOPLE_MAIN_PAGE = "/wiki/Category:Living_people"
+        LIVING_PEOPLE_MAIN_PAGE = "/wiki/Category:People_by_century"
         pages = [LIVING_PEOPLE_MAIN_PAGE]
         for c in string.ascii_uppercase:
-            pages.append(f"/wiki/Category:Living_people?from={c}")
+            pages.append(f"/wiki/Category:People_by_century?from={c}")
         results = set()
         threads = []
         for p in pages:    
@@ -77,7 +77,7 @@ def get_visit_count(links, results=None):
             return sum(i["views"] for i in view["items"])
         else:
             return None
-        
+
     @threadify
     def loader(q, results):
         link = q.get()
